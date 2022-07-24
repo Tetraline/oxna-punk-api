@@ -1,0 +1,7 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  &__item {
+    height: 15vw;
+  }
+}
