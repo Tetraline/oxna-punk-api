@@ -1,14 +1,16 @@
 .card {
   display: grid;
   grid-template-columns: 3fr 7fr;
+  border: 1px solid black;
+  margin: 15px;
   img {
     justify-self: center;
     align-self: center;
     height: 170px;
     grid-row: 1/10;
+    margin: 10px;
   }
   p {
     margin: 5px;
   }
-  border: 1px solid black;
 }
