@@ -1,5 +1,6 @@
 import "./FilterMenu.scss";
 import { useState } from "react";
+import Dropdown from "../Dropdown/Dropdown";
 
 const FilterMenu = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -9,11 +10,12 @@ const FilterMenu = () => {
     <>
       <button onClick={handleTogglePress}>Filter</button>
       {showMenu && (
-        <select name="abv">
-          <option value="Any">Any</option>
-          <option value="high">High</option>
-          <option value="low">Low</option>
-        </select>
+        <Dropdown
+          description="What alcohol content?"
+          options={["Low", "High"]}
+          handleSelection={console.log("ok")}
+          exclusive={true}
+        />
       )}
     </>
   );
