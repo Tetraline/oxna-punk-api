@@ -2,4 +2,20 @@ button {
   &.active {
     background-color: green;
   }
+  border: none;
+}
+
+.dropdown {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  &__parent {
+    width: 100%;
+    border-bottom: 2px solid black;
+  }
+
+  &__child {
+    width: 80%;
+    align-self: right;
+  }
 }
