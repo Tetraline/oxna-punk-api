@@ -7,13 +7,71 @@ const Filters = ({ data, setCardsToRender }) => {
   const [abv, setAbv] = useState("all");
   const [year, setYear] = useState("all");
   const [ph, setPh] = useState("all");
-  const searchByName = (event) => {
-    const searchString = event.target.value.toUpperCase();
-    setCardsToRender(
-      data.filter((element) =>
-        element.name.toUpperCase().includes(searchString)
-      )
-    );
+  const [searchString, setSearchString] = useState("");
+
+  const filter = () => {
+    console.log("filtering now!");
+    console.log(`${abv} ${year} ${ph} ${searchString}`);
+    let filteredData = [...data];
+    if (searchString) {
+      filteredData = filteredData.filter((element) =>
+        element.name.toUpperCase().includes(searchString.toUpperCase())
+      );
+    }
+    switch (abv) {
+      case "high":
+        filteredData = filteredData.filter((element) => element.abv > 6);
+        break;
+
+      case "low":
+        filteredData = filteredData.filter(
+          (element) => element.abv <= 6 && element.abv > 1
+        );
+        break;
+
+      case "zero":
+        filteredData = filteredData.filter((element) => element.abv <= 1);
+        break;
+
+      default:
+        break;
+    }
+
+    switch (year) {
+      case "b2010":
+        filteredData = filteredData.filter(
+          (element) => element.first_brewed.split("/")[1] < 2010
+        );
+        break;
+
+      case "a2010":
+        filteredData = filteredData.filter(
+          (element) => element.first_brewed.split("/")[1] >= 2010
+        );
+        break;
+
+      default:
+        break;
+    }
+
+    switch (ph) {
+      case "low":
+        filteredData = filteredData.filter((element) => element.ph < 4);
+        break;
+
+      case "high":
+        filteredData = filteredData.filter((element) => element.ph >= 4);
+        break;
+
+      default:
+        break;
+    }
+    setCardsToRender(filteredData);
+  };
+
+  const handleSearchInput = (event) => {
+    setSearchString(event.target.value);
+    filter();
   };
 
   const handleSelection = ([key, value]) => {
@@ -33,16 +91,20 @@ const Filters = ({ data, setCardsToRender }) => {
         console.error("Unknown Filter Value");
         break;
     }
+    filter();
   };
 
   return (
     <section className="filters">
-      <SearchBox placeholderText="search by name" handleInput={searchByName} />
+      <SearchBox
+        placeholderText="search by name"
+        handleInput={handleSearchInput}
+      />
       <br />
       <FilterMenu handleSelection={handleSelection} />
       <br />
       <h2>
-        {abv} {year} {ph}
+        {abv} {year} {ph} {searchString}
       </h2>
     </section>
   );

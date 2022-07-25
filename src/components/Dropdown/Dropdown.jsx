@@ -4,6 +4,9 @@ const Dropdown = ({ description, options, handleSelection, multiple }) => {
   const [showOptions, setShowOptions] = useState(false);
   const handleTogglePress = () => setShowOptions(!showOptions);
   const handleOptionPress = (event) => {
+    const filterKey = event.target.getAttribute("filterkey");
+    const filterValue = event.target.getAttribute("filtervalue");
+    handleSelection.handleSelection([filterKey, filterValue]);
     if (event.target.classList.value === "active") {
       event.target.classList.remove("active");
       return;
@@ -14,21 +17,7 @@ const Dropdown = ({ description, options, handleSelection, multiple }) => {
         element.classList.remove("active");
       });
       event.target.classList.add("active");
-    } else {
-      event.target.classList.add("active");
     }
-
-    const allFilterOptions = document.querySelectorAll(".dropdown__child");
-    const filterKey = event.target.getAttribute("filterkey");
-    let filterValue = "";
-    allFilterOptions.forEach((option) => {
-      if (option.getAttribute("filterkey") === filterKey) {
-        if (option.classList.value.includes("active")) {
-          filterValue += `&${option.getAttribute("filtervalue")}`;
-        }
-      }
-    });
-    console.log(`Key: ${filterKey} Value: ${filterValue}`);
   };
 
   //  const stateArray = [];
