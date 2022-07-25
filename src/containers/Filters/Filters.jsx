@@ -4,14 +4,15 @@ import FilterMenu from "../../components/FilterMenu/FilterMenu";
 import { useState } from "react";
 
 const Filters = ({ data, setCardsToRender }) => {
-  const [abv, setAbv] = useState("all");
-  const [year, setYear] = useState("all");
-  const [ph, setPh] = useState("all");
+  //const [abv, setAbv] = useState("all");
+  //const [year, setYear] = useState("all");
+  //const [ph, setPh] = useState("all");
   const [searchString, setSearchString] = useState("");
+  let abv = "all";
+  let year = "all";
+  let ph = "all";
 
   const filter = () => {
-    console.log("filtering now!");
-    console.log(`${abv} ${year} ${ph} ${searchString}`);
     let filteredData = [...data];
     if (searchString) {
       filteredData = filteredData.filter((element) =>
@@ -77,15 +78,18 @@ const Filters = ({ data, setCardsToRender }) => {
   const handleSelection = ([key, value]) => {
     switch (key) {
       case "abv":
-        setAbv(value);
+        //setAbv(value);
+        abv = value;
         break;
 
       case "year":
-        setYear(value);
+        //setYear(value);
+        year = value;
         break;
 
       case "ph":
-        setPh(value);
+        //        setPh(value);
+        ph = value;
         break;
       default:
         console.error("Unknown Filter Value");
@@ -102,10 +106,6 @@ const Filters = ({ data, setCardsToRender }) => {
       />
       <br />
       <FilterMenu handleSelection={handleSelection} />
-      <br />
-      <h2>
-        {abv} {year} {ph} {searchString}
-      </h2>
     </section>
   );
 };
