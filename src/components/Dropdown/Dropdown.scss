@@ -1,8 +1,6 @@
+@use "../../assets/sass//variables" as *;
+
 button {
-  &.active {
-    background-color: green;
-  }
-  border: none;
 }
 
 .dropdown {
@@ -11,11 +9,22 @@ button {
   align-items: flex-end;
   &__parent {
     width: 100%;
+    height: 60px;
+    border: none;
     border-bottom: 2px solid black;
   }
 
   &__child {
     width: 80%;
+    height: 50px;
     align-self: right;
+
+    &.active {
+      background-color: $button-blue;
+      color: $main-text-white;
+    }
+    background-color: $button-grey;
+    color: $main-text-blue;
+    border: none;
   }
 }

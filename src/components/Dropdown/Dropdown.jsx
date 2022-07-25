@@ -7,6 +7,7 @@ const Dropdown = ({ description, options, handleSelection, multiple }) => {
     const filterKey = event.target.getAttribute("filterkey");
     const filterValue = event.target.getAttribute("filtervalue");
     handleSelection.handleSelection([filterKey, filterValue]);
+
     if (event.target.classList.value === "active") {
       event.target.classList.remove("active");
       return;
@@ -14,16 +15,16 @@ const Dropdown = ({ description, options, handleSelection, multiple }) => {
 
     if (!multiple) {
       document.querySelectorAll("button").forEach((element) => {
-        element.classList.remove("active");
+        if (
+          element.getAttribute("filterkey") ===
+          event.target.getAttribute("filterKey")
+        ) {
+          element.classList.remove("active");
+        }
       });
       event.target.classList.add("active");
     }
   };
-
-  //  const stateArray = [];
-  //  options.forEach((option) => {
-  //    stateArray.push(useState("false"));
-  //  });
 
   const optionsJSX = options.map(([description, key, value]) => (
     <button

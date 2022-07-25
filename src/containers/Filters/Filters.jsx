@@ -1,18 +1,15 @@
 import "./Filters.scss";
 import SearchBox from "../../components/SearchBox/SearchBox";
 import FilterMenu from "../../components/FilterMenu/FilterMenu";
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 const Filters = ({ data, setCardsToRender }) => {
-  //const [abv, setAbv] = useState("all");
-  //const [year, setYear] = useState("all");
-  //const [ph, setPh] = useState("all");
+  const [abv, setAbv] = useState("all");
+  const [year, setYear] = useState("all");
+  const [ph, setPh] = useState("all");
   const [searchString, setSearchString] = useState("");
-  let abv = "all";
-  let year = "all";
-  let ph = "all";
 
-  const filter = () => {
+  const filter = useCallback(() => {
     let filteredData = [...data];
     if (searchString) {
       filteredData = filteredData.filter((element) =>
@@ -68,34 +65,30 @@ const Filters = ({ data, setCardsToRender }) => {
         break;
     }
     setCardsToRender(filteredData);
-  };
+  }, [data, abv, year, ph, searchString, setCardsToRender]);
 
+  useEffect(() => filter(), [abv, year, ph, searchString, filter]);
   const handleSearchInput = (event) => {
     setSearchString(event.target.value);
-    filter();
   };
 
   const handleSelection = ([key, value]) => {
     switch (key) {
       case "abv":
-        //setAbv(value);
-        abv = value;
+        setAbv(value);
         break;
 
       case "year":
-        //setYear(value);
-        year = value;
+        setYear(value);
         break;
 
       case "ph":
-        //        setPh(value);
-        ph = value;
+        setPh(value);
         break;
       default:
         console.error("Unknown Filter Value");
         break;
     }
-    filter();
   };
 
   return (
@@ -106,6 +99,10 @@ const Filters = ({ data, setCardsToRender }) => {
       />
       <br />
       <FilterMenu handleSelection={handleSelection} />
+      <br />
+      <h2>
+        {abv} {year} {ph}
+      </h2>
     </section>
   );
 };
