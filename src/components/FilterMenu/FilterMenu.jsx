@@ -33,8 +33,8 @@ const FilterMenu = (handleSelection) => {
           <Dropdown
             description="How Acidic?"
             options={[
-              ["Acidic (ph<7)", "ph", "low"],
-              ["Non-Acidic (ph>7)", "ph", "high"],
+              ["Acidic (ph<4)", "ph", "low"],
+              ["Non-Acidic (ph>4)", "ph", "high"],
             ]}
             handleSelection={handleSelection}
             exclusive={true}

@@ -6,6 +6,8 @@ const Card = ({ item }) => {
 
       <h2>{item.name}</h2>
       <p>{item.abv}%</p>
+      <p>First brewed: {item.first_brewed}</p>
+      <p>ph level: {item.ph}</p>
       <p>{item.description}</p>
     </div>
   );
