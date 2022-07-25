@@ -75,15 +75,15 @@ const Filters = ({ data, setCardsToRender }) => {
   const handleSelection = ([key, value]) => {
     switch (key) {
       case "abv":
-        setAbv(value);
+        abv === value ? setAbv("all") : setAbv(value);
         break;
 
       case "year":
-        setYear(value);
+        year === value ? setYear("all") : setYear(value);
         break;
 
       case "ph":
-        setPh(value);
+        ph === value ? setPh("all") : setPh(value);
         break;
       default:
         console.error("Unknown Filter Value");
@@ -102,10 +102,6 @@ const Filters = ({ data, setCardsToRender }) => {
         handleSelection={handleSelection}
         selectedOptions={{ abv: abv, year: year, ph: ph }}
       />
-      <br />
-      <h2>
-        {abv} {year} {ph}
-      </h2>
     </section>
   );
 };

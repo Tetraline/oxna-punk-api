@@ -1,15 +1,25 @@
 import "./FilterMenu.scss";
 import { useState } from "react";
 import Dropdown from "../Dropdown/Dropdown";
+import cross from "../../assets/images/cross.png";
+import generateFilterString from "./generateFilterString.jsx";
 
 const FilterMenu = ({ handleSelection, selectedOptions }) => {
   const [showMenu, setShowMenu] = useState(false);
   const handleTogglePress = () => setShowMenu(!showMenu);
+  const filtersJSX = generateFilterString(selectedOptions);
   return (
     <>
       <button onClick={handleTogglePress}>Filter</button>
+      <p className="filter-menu__verbose-filters">{filtersJSX}</p>
       {showMenu && (
-        <>
+        <div className="filter-dropdowns">
+          <img
+            onClick={handleTogglePress}
+            className="filter-dropdowns__cross"
+            src={cross}
+            alt="Exit"
+          />
           <Dropdown
             description="What alcohol content?"
             options={[
@@ -41,7 +51,7 @@ const FilterMenu = ({ handleSelection, selectedOptions }) => {
             exclusive={true}
             selectedOption={selectedOptions.ph}
           />
-        </>
+        </div>
       )}
     </>
   );

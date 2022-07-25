@@ -1,3 +1,22 @@
 button {
   border-bottom: 2px solid black;
 }
+
+.filter-menu__verbose-filters {
+  font-size: small;
+}
+
+.filter-dropdowns {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: white;
+  overflow: auto;
+  &__cross {
+    margin-left: 90%;
+    margin-top: 20px;
+    width: 25px;
+  }
+}

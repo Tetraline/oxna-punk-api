@@ -13,23 +13,6 @@ const Dropdown = ({
     const filterKey = event.target.getAttribute("filterkey");
     const filterValue = event.target.getAttribute("filtervalue");
     handleSelection([filterKey, filterValue]);
-
-    //if (event.target.classList.value === "active") {
-    //  event.target.classList.remove("active");
-    //  return;
-    //}
-
-    //if (!multiple) {
-    //  document.querySelectorAll("button").forEach((element) => {
-    //    if (
-    //      element.getAttribute("filterkey") ===
-    //      event.target.getAttribute("filterKey")
-    //    ) {
-    //      element.classList.remove("active");
-    //    }
-    //  });
-    //  event.target.classList.add("active");
-    //}
   };
 
   const optionsJSX = options.map(([description, key, value]) => {

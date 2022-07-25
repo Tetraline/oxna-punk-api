@@ -17,7 +17,7 @@ button {
   &__child {
     width: 80%;
     height: 50px;
-    align-self: right;
+    margin: 10px;
 
     &.active {
       background-color: $button-blue;
