@@ -98,7 +98,10 @@ const Filters = ({ data, setCardsToRender }) => {
         handleInput={handleSearchInput}
       />
       <br />
-      <FilterMenu handleSelection={handleSelection} />
+      <FilterMenu
+        handleSelection={handleSelection}
+        selectedOptions={{ abv: abv, year: year, ph: ph }}
+      />
       <br />
       <h2>
         {abv} {year} {ph}

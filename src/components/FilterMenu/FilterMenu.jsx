@@ -2,10 +2,9 @@ import "./FilterMenu.scss";
 import { useState } from "react";
 import Dropdown from "../Dropdown/Dropdown";
 
-const FilterMenu = (handleSelection) => {
+const FilterMenu = ({ handleSelection, selectedOptions }) => {
   const [showMenu, setShowMenu] = useState(false);
   const handleTogglePress = () => setShowMenu(!showMenu);
-
   return (
     <>
       <button onClick={handleTogglePress}>Filter</button>
@@ -20,6 +19,7 @@ const FilterMenu = (handleSelection) => {
             ]}
             handleSelection={handleSelection}
             exclusive={true}
+            selectedOption={selectedOptions.abv}
           />
           <Dropdown
             description="From which range?"
@@ -29,6 +29,7 @@ const FilterMenu = (handleSelection) => {
             ]}
             handleSelection={handleSelection}
             exclusive={true}
+            selectedOption={selectedOptions.year}
           />
           <Dropdown
             description="How Acidic?"
@@ -38,6 +39,7 @@ const FilterMenu = (handleSelection) => {
             ]}
             handleSelection={handleSelection}
             exclusive={true}
+            selectedOption={selectedOptions.ph}
           />
         </>
       )}
