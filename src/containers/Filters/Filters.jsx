@@ -1,7 +1,7 @@
 import "./Filters.scss";
 import SearchBox from "../../components/SearchBox/SearchBox";
 import FilterMenu from "../../components/FilterMenu/FilterMenu";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 
 const Filters = ({ data, setCardsToRender }) => {
   const [abv, setAbv] = useState("all");
@@ -9,7 +9,7 @@ const Filters = ({ data, setCardsToRender }) => {
   const [ph, setPh] = useState("all");
   const [searchString, setSearchString] = useState("");
 
-  const filter = useCallback(() => {
+  const filter = (abv, year, ph, searchString, data, setCardsToRender) => {
     let filteredData = [...data];
     if (searchString) {
       filteredData = filteredData.filter((element) =>
@@ -65,9 +65,12 @@ const Filters = ({ data, setCardsToRender }) => {
         break;
     }
     setCardsToRender(filteredData);
-  }, [data, abv, year, ph, searchString, setCardsToRender]);
+  };
 
-  useEffect(() => filter(), [abv, year, ph, searchString, filter]);
+  useEffect(() => {
+    filter(abv, year, ph, searchString, data, setCardsToRender);
+  }, [abv, year, ph, searchString, data, setCardsToRender]);
+
   const handleSearchInput = (event) => {
     setSearchString(event.target.value);
   };
