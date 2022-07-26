@@ -1,8 +1,5 @@
 @use "../../assets/sass//variables" as *;
 
-button {
-}
-
 .dropdown {
   display: flex;
   flex-direction: column;
@@ -14,6 +11,9 @@ button {
     border-bottom: 2px solid black;
     background-color: $button-grey;
     color: $main-text-blue;
+    &--disabled {
+      background-color: darkgray;
+    }
   }
 
   &__child {

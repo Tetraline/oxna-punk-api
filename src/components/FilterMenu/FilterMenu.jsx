@@ -4,7 +4,7 @@ import Dropdown from "../Dropdown/Dropdown";
 import cross from "../../assets/images/cross.png";
 import generateFilterString from "./generateFilterString.jsx";
 
-const FilterMenu = ({ handleSelection, selectedOptions }) => {
+const FilterMenu = ({ handleSelection, selectedOptions, showPh }) => {
   const [showMenu, setShowMenu] = useState(false);
   const handleTogglePress = () => setShowMenu(!showMenu);
   const filtersJSX = generateFilterString(selectedOptions);
