@@ -11,7 +11,6 @@ const FilterMenu = ({ handleSelection, selectedOptions }) => {
   return (
     <>
       <button onClick={handleTogglePress}>Filter</button>
-      <p className="filter-menu__verbose-filters">{filtersJSX}</p>
       {showMenu && (
         <div className="filter-dropdowns">
           <img
@@ -50,6 +49,7 @@ const FilterMenu = ({ handleSelection, selectedOptions }) => {
           />
         </div>
       )}
+      <p className="filter-menu__verbose-filters">{filtersJSX}</p>
     </>
   );
 };
