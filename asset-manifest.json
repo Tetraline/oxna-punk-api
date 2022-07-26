@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/oxna-punk-api/static/css/main.91febdf8.css",
+    "main.js": "/oxna-punk-api/static/js/main.02851228.js",
+    "static/js/787.b461817b.chunk.js": "/oxna-punk-api/static/js/787.b461817b.chunk.js",
+    "static/media/logo.png": "/oxna-punk-api/static/media/logo.b2236e319abd97c228bd.png",
+    "index.html": "/oxna-punk-api/index.html",
+    "main.91febdf8.css.map": "/oxna-punk-api/static/css/main.91febdf8.css.map",
+    "main.02851228.js.map": "/oxna-punk-api/static/js/main.02851228.js.map",
+    "787.b461817b.chunk.js.map": "/oxna-punk-api/static/js/787.b461817b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.91febdf8.css",
+    "static/js/main.02851228.js"
+  ]
+}
