@@ -5,7 +5,6 @@ const Dropdown = ({
   options,
   handleSelection,
   selectedOption,
-  multiple,
 }) => {
   const [showOptions, setShowOptions] = useState(false);
   const handleTogglePress = () => setShowOptions(!showOptions);

@@ -28,7 +28,6 @@ const FilterMenu = ({ handleSelection, selectedOptions }) => {
               ["Zero", "abv", "zero"],
             ]}
             handleSelection={handleSelection}
-            exclusive={true}
             selectedOption={selectedOptions.abv}
           />
           <Dropdown
@@ -38,7 +37,6 @@ const FilterMenu = ({ handleSelection, selectedOptions }) => {
               ["New (After 2010)", "year", "a2010"],
             ]}
             handleSelection={handleSelection}
-            exclusive={true}
             selectedOption={selectedOptions.year}
           />
           <Dropdown
@@ -48,7 +46,6 @@ const FilterMenu = ({ handleSelection, selectedOptions }) => {
               ["Non-Acidic (ph>4)", "ph", "high"],
             ]}
             handleSelection={handleSelection}
-            exclusive={true}
             selectedOption={selectedOptions.ph}
           />
         </div>
