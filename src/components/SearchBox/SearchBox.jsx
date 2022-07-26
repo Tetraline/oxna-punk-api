@@ -1,6 +1,12 @@
+import "./SearchBox.scss";
 const SearchBox = ({ placeholderText, handleInput }) => {
   return (
-    <input type="text" placeholder={placeholderText} onInput={handleInput} />
+    <input
+      className="search-box"
+      type="text"
+      placeholder={placeholderText}
+      onInput={handleInput}
+    />
   );
 };
 
