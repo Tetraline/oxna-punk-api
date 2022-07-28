@@ -6,7 +6,7 @@ import beers from "./assets/data/example-api-response";
 import { useState } from "react";
 import data from "./assets/data/example-api-response";
 
-function App() {
+const App = () => {
   const [cardsToRender, setCardsToRender] = useState(data);
   return (
     <>
@@ -15,6 +15,6 @@ function App() {
       <CardList cards={cardsToRender} />
     </>
   );
-}
+};
 
 export default App;
