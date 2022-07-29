@@ -140,6 +140,8 @@ const Filters = ({ setCardsToRender }) => {
       />
       {numResults === 80 ? (
         <p>Many results. 80 shown. Page {page}.</p>
+      ) : page > 1 ? (
+        <p>{`Many results. ${numResults} shown. Page ${page}`}</p>
       ) : (
         <p>{`${numResults} results`}</p>
       )}
